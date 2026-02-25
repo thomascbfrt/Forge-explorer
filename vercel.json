@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "public/forge-explorer",
+  "outputDirectory": "public/forge-explorer/browser",
   "rewrites": [
     {
       "source": "/(.*)",
