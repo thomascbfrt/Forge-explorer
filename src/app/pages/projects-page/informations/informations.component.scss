@@ -1,0 +1,219 @@
+.right-panel {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: 0.0625rem solid black;
+  border-radius: 0.3125rem;
+  box-shadow: 0 0.25rem 0.25rem black;
+  height: 90vh;
+  width: 24vw;
+  max-width: 24vw;
+  right: 0;
+  top: 50%;
+  transform: translate(-1.5vw, -50%);
+  padding: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: #000;
+  overflow: hidden;
+
+  img {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.right-panel-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  gap: 0.3125rem;
+}
+
+div.group-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+
+  img {
+    align-self: flex-end;
+    height: 4vw;
+    width: 4vw;
+
+    &.close-icon {
+      cursor: pointer;
+    }
+  }
+
+  div {
+    h3 {
+      padding-inline: 20px;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 1300px) {
+  .description-element {
+    width: 24vw;
+    max-width: 24vw;
+  }
+
+  .project-header h3 {
+    font-size: 1.1rem;
+  }
+  .label,
+  .description,
+  .info-value,
+  .creator-label {
+    font-size: 1.1rem;
+  }
+  .readme-section {
+    font-size: 0.6rem;
+  }
+
+  .project-link {
+    font-size: 0.65rem;
+    padding: 0.45rem;
+  }
+}
+
+@media (max-width: 1020px) {
+  .description-element {
+    width: clamp(240px, 32vw, 360px);
+    right: 2%;
+    left: auto;
+    transform: none;
+    height: auto;
+    padding: 2.5%;
+  }
+
+  .project-header h3 {
+    font-size: 1.25rem;
+  }
+  .label,
+  .description,
+  .info-value,
+  .creator-label {
+    font-size: 1.05rem;
+  }
+  .readme-section {
+    font-size: 0.6rem;
+  }
+
+  .project-link-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.45rem;
+  }
+
+  .project-link {
+    font-size: 0.65rem;
+    padding: 0.45rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .description-element {
+    width: clamp(240px, 34vw, 400px);
+    right: 2%;
+    left: auto;
+    transform: none;
+    height: auto;
+    max-height: 70vh;
+    padding: 3%;
+  }
+
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+  .label,
+  .description,
+  .info-value,
+  .creator-label {
+    font-size: 0.9rem;
+  }
+  .readme-section {
+    font-size: 0.62rem;
+  }
+
+  .project-link-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0.5rem;
+  }
+
+  .project-link {
+    font-size: 0.65rem;
+    padding: 0.45rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .description-element {
+    width: 80vw;
+    right: 2%;
+    left: auto;
+    padding: 3.5%;
+  }
+
+  .project-header h3 {
+    font-size: 1.15rem;
+  }
+  .label,
+  .description,
+  .info-value,
+  .creator-label {
+    font-size: 0.95rem;
+  }
+  .readme-section {
+    font-size: 0.65rem;
+  }
+
+  .project-link-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .description-element {
+    width: 88vw;
+    right: 2%;
+    left: auto;
+    max-height: 75vh;
+  }
+
+  .project-header h3 {
+    font-size: 1.1rem;
+  }
+  .label,
+  .description,
+  .info-value,
+  .creator-label {
+    font-size: 0.95rem;
+  }
+  .readme-section {
+    font-size: 0.68rem;
+  }
+  .project-link {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
+
+  .project-link-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.45rem;
+  }
+}

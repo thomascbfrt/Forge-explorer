@@ -1,0 +1,240 @@
+
+.helper-panel {
+  // petit panneau d'aide centré en bas
+  position: fixed;
+  left: 50%;
+  bottom: 6rem;
+  transform: translateX(-50%);
+  background-color: #d9d9d9;
+  color: #000;
+  border: 0.0625rem solid #b8b8b8;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
+  padding: 0.75rem 0.9rem;
+  width: min(22rem, 90vw);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: helper-bounce 320ms ease-out;
+}
+
+
+.helper-toggle {
+  // bouton discret pour ouvrir l'aide
+  position: fixed;
+  left: 50%;
+  bottom: 6rem;
+  transform: translateX(-50%);
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  border: 0.0625rem solid #b8b8b8;
+  background: #d9d9d9;
+  color: #111;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 0;
+  z-index: 900;
+}
+
+.helper-toggle:hover {
+  background: #cfcfcf;
+}
+
+.helper-close {
+  // petite fleche pour fermer
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 0.0625rem solid #b8b8b8;
+  border-radius: 0.4rem;
+  background: #e5e5e5;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.helper-close:hover {
+  background: #d6d6d6;
+}
+
+.sr-only {
+  // texte cache pour accessibilite
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.helper-title {
+  // titre du panneau
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.helper-summary {
+  // petit resume en haut
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.2rem 0;
+}
+
+.helper-summary-row {
+  // ligne avec icone + texte
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 0.35rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.helper-summary-row img {
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.helper-list {
+  // liste des items d'aide avec scroll si besoin
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 38vh;
+  overflow: auto;
+}
+
+
+.helper-item {
+  // ligne avec image + texte
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+}
+
+.helper-image {
+  // bloc image
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.0625rem solid #b8b8b8;
+  border-radius: 0.35rem;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+
+.helper-image img {
+  // image centree dans le carre
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.helper-text {
+  // conteneur du texte a droite
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.helper-link {
+  // lien avec icône comme dans les pages d'info
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+  transition: opacity 0.2s ease;
+
+  img {
+    width: 0.75rem;
+    height: 0.75rem;
+    object-fit: contain;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.helper-label {
+  // titre court de l'item
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.helper-description {
+  // description plus petite
+  font-size: 0.7rem;
+  line-height: 1.2;
+  text-align: left;
+  color: #1a1a1a;
+}
+
+.helper-footer {
+  // petite phrase en bas
+  font-size: 0.65rem;
+  color: #2f2f2f;
+  text-align: left;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .helper-panel {
+    // version mobile un peu plus compacte
+    bottom: 5.5rem;
+    width: min(20rem, 92vw);
+  }
+
+  .helper-toggle {
+    bottom: 5.5rem;
+
+  }
+}
+
+@keyframes helper-bounce {
+  0% {
+    transform: translateX(-50%) translateY(8px) scale(0.96);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) translateY(-4px) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}

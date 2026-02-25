@@ -1,0 +1,88 @@
+// User's link
+.info-section {
+  margin-bottom: 2.5%;
+
+  .label {
+    font-size: 0.9vw;
+    font-weight: bold;
+    margin: 0 0 1% 0;
+    color: #000;
+  }
+
+  .user-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.4vw;
+    transition: background 0.2s ease;
+    margin: 0 auto;
+    width: fit-content;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  .info-value {
+    font-size: 0.8vw;
+    margin: 0;
+    color: #000;
+  }
+}
+
+// User's projets
+.projects-list {
+  max-height: 30vh;
+  overflow-y: auto;
+
+  .no-projects {
+    font-size: 0.7vw;
+    margin: 0;
+    color: #000;
+    font-style: italic;
+  }
+
+  .project-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-bottom: 0.6vw;
+
+      .project-link {
+        display: flex;
+        align-items: center;
+        gap: 0.6vw;
+        color: #000;
+        text-decoration: none;
+        font-size: 0.8vw;
+        padding: 0.5vw;
+        border-radius: 0.4vw;
+        background: rgba(255, 255, 255, 0.2);
+        transition: background 0.2s ease;
+        &:hover {
+          background: rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      .project-avatar {
+        width: 2vw;
+        height: 2vw;
+        border-radius: 0.3vw;
+        object-fit: cover;
+      }
+
+      .project-name {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

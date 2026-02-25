@@ -1,0 +1,55 @@
+<!-- Creation date -->
+<div class="info-section">
+  <p class="info-value">{{ group?.created_at }}</p>
+</div>
+
+<!-- Prime Accodion -->
+<div class="card flex justify-center">
+  <p-accordion value="0">
+    <!-- Group's description -->
+    <p-accordion-panel value="0">
+      <p-accordion-header>Description</p-accordion-header>
+      <p-accordion-content>
+        <p class="m-0">
+          {{ group?.description || 'Aucune description disponible' }}
+        </p>
+      </p-accordion-content>
+    </p-accordion-panel>
+    <!-- Group's members -->
+    <p-accordion-panel value="1">
+      <p-accordion-header>Membres du groupe :</p-accordion-header>
+      <p-accordion-content>
+        <div class="members-list">
+          @if (!members || members.length === 0) {
+          <p class="no-members">Aucun membre trouvé</p>
+          } @else {
+          <ul class="member-links">
+            @for (member of members; track member.id) {
+            <li>
+              <a [href]="member.webUrl" target="_blank" class="member-link">
+                <span class="member-name">{{ member.name }}</span>
+                <img
+                  src="icons/icon-open.svg"
+                  alt="Ouvrir"
+                  style="width: 1vw; height: 1vw"
+                />
+              </a>
+            </li>
+            }
+          </ul>
+          }
+        </div>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+</div>
+
+<!-- Group's link -->
+<div class="link-section">
+  @if (group?.web_url) {
+  <a [href]="group?.web_url" target="_blank" class="group-link">
+    <img src="icons/icon-open.svg" alt="Open" />
+    <span class="text">Ouvrir le groupe</span>
+  </a>
+  }
+</div>

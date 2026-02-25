@@ -1,0 +1,72 @@
+<div class="container" style="height: 800px">
+  <div
+    class="graph"
+    #topicsChart
+    style="height: 100vh; border: 1px solid lightgray"
+  ></div>
+
+  <div class="list-topics">
+    <!-- Navigation Links -->
+    <a routerLink="/" class="navigation-links">
+      <img src="icons/icon-home.svg" alt="home icon" />
+      <div class="navigation-link">Forge Explorer</div>
+    </a>
+
+    <hr class="solid" />
+
+    <div id="search-bar">
+      <input
+        #search
+        type="text"
+        name="search"
+        (input)="onSearch(search.value)"
+        placeholder="Rechercher un sujet"
+      />
+
+      @if (isLoading) {
+        <img
+          src="icons/icon-loading.svg"
+          alt="loading icons"
+          class="loading-spinner"
+        />
+      }
+    </div>
+
+    @if (searchMessage) {
+      <div class="search-message">
+        {{ searchMessage }}
+      </div>
+    }
+
+    <hr class="solid" />
+
+    <div class="topic-display">
+      <div class="table">
+        <div class="thead">
+          <div class="tr">
+            <div class="th">Sujet</div>
+            <div class="th">Nombre projets</div>
+          </div>
+        </div>
+        <div class="tbody">
+          @for (topic of topics; track $index) {
+            <div
+              class="tr"
+              (click)="topicSelected(topic)"
+              (dblclick)="test2clickEvent(topic)"
+              [class.selected]="topic.id == selectedTopic?.id"
+              [class.hoverable]="topic.id != selectedTopic?.id"
+            >
+              <div class="td">{{ topic.name }}</div>
+              <div class="td">{{ topic.total_projects_count }}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <button [disabled]="!selectedTopic" (click)="exploreClick()">
+      Explore
+    </button>
+  </div>
+</div>

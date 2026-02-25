@@ -1,0 +1,36 @@
+image: node:19
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - npm install
+    - npm run build ngx-forge-map
+    - npm run build -- --base-href /tfore/forge-explorer/
+    - mkdir -p dist_folder
+    - cp -r public/forge-explorer/browser/* dist_folder/
+  artifacts:
+    paths:
+      - dist_folder/
+    expire_in: 1 week
+  only:
+    - master
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r dist_folder/* .public/
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

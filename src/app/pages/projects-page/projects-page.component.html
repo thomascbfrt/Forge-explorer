@@ -1,0 +1,116 @@
+<div class="app-container">
+  <div
+    class="graph"
+    #projectsChart
+    style="height: 100vh; border: 1px solid lightgray"
+  ></div>
+
+  <!-- Informations popup -->
+  @if (showHelperPopup()) {
+    <div class="info-popup">
+      Commencez une recherche grâce à la barre de gauche
+    </div>
+  }
+
+  <div class="list-elements">
+    <!-- Navigation Links -->
+    <a class="navigation-links" routerLink="/">
+      <img src="icons/icon-home.svg" alt="home icon" />
+      <div class="navigation-link">Forge Explorer</div>
+    </a>
+
+    <hr class="solid" />
+
+    @if (restriction_topics == undefined) {
+      <div id="search-bar">
+        <input
+          #search
+          type="text"
+          name="search"
+          (input)="onSearch(search.value)"
+          placeholder="Rechercher un projet"
+        />
+
+        @if (isLoading) {
+          <img
+            src="icons/icon-loading.svg"
+            alt="loading icons"
+            class="loading-spinner"
+          />
+        }
+      </div>
+    } @else {
+      <div class="topic-bar">
+        {{ restriction_topics }}
+        <img
+          src="icons/icon-delete.svg"
+          alt="delete button"
+          (click)="onDeleteTopic()"
+        />
+      </div>
+    }
+
+    @if (searchMessageError) {
+      <div class="search-message">
+        {{ searchMessageError }}
+      </div>
+    }
+
+    <div class="nb-elements">
+      éléments chargés :
+      {{
+        elements.projects.length +
+          elements.users.length +
+          elements.groups.length
+      }}
+    </div>
+
+    <div class="topic-display">
+      <div class="table">
+        <div class="tbody">
+          @for (elt of elements.projects; track $index) {
+            <div
+              class="tr"
+              (click)="onItemSelected(elt)"
+              [class.hoverable]="elt != selected_elements"
+              [class.selected]="elt == selected_elements"
+            >
+              <img
+                src="icons/icon-project/icon-project-unselected.svg"
+                alt=""
+              />
+              {{ elt.name }}
+            </div>
+          }
+          @for (elt of elements.users; track $index) {
+            <div
+              class="tr"
+              (click)="onItemSelected(elt)"
+              [class.hoverable]="elt != selected_elements"
+              [class.selected]="elt == selected_elements"
+            >
+              <img src="icons/icon-user/icon-user-unselected.svg" alt="" />
+              {{ elt.name }}
+            </div>
+          }
+          @for (elt of elements.groups; track $index) {
+            <div
+              class="tr"
+              (click)="onItemSelected(elt)"
+              [class.hoverable]="elt != selected_elements"
+              [class.selected]="elt == selected_elements"
+            >
+              <img src="icons/icon-group/icon-group-unselected.svg" alt="" />
+              {{ elt.name }}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-project-helper #projectHelper />
+  <app-informations #informations [item]="selected_elements" />
+
+  <app-floating-toolbar (toolClicked)="onToolbarItemClicked($event)" />
+</div>

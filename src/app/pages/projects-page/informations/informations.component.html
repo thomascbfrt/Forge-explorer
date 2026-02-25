@@ -1,0 +1,37 @@
+@if (item) {
+  <div class="right-panel" style="z-index: 1000">
+    <div class="group-header">
+      <div>
+
+        <img
+        [src]="item?.avatar_url || item.image_path"
+        [alt]="item?.type + 's\' Icon'"
+        />
+        <h3>{{ item?.name }}</h3>
+        <img
+          src="icons/icon-close.svg"
+          alt="close button"
+          class="close-icon"
+          (click)="onCloseButton()"
+        />
+      </div>
+    </div>
+
+    <div class="right-panel-content">
+      @switch (item?.type) {
+        @case ("project") {
+          <app-projects-informations [project]="item" />
+        }
+        @case ("group") {
+          <app-group-informations [group]="item" [members]="group_members" />
+        }
+        @case ("user") {
+          <app-utilisateur-information
+            [user]="item"
+            [projects]="user_projects"
+          />
+        }
+      }
+    </div>
+  </div>
+}

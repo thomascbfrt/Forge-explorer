@@ -1,0 +1,40 @@
+@if(visible) {
+  <div class="helper-panel">
+    <button
+    class="helper-close"
+    type="button"
+    (click)="hide()"
+    >
+    <span aria-hidden="true">↘</span>
+    <span class="sr-only">Fermer</span>
+  </button>
+  <div class="helper-title">Aide :</div>
+  <div class="helper-summary">
+    @for (item of helper_summary; track item.text) {
+      <div class="helper-summary-row">
+        <img [src]="item.image" [alt]="item.text" />
+        <span>{{ item.text }}</span>
+      </div>
+    }
+  </div>
+  <div class="helper-list">
+    @for (item of helper_items; track item.title) {
+      <div class="helper-item">
+        <div class="helper-image">
+          <img [src]="item.image" [alt]="item.title" />
+        </div>
+        <div class="helper-text">
+          <div class="helper-label">{{ item.title }}</div>
+          <div class="helper-description">{{ item.description }}</div>
+          @if (item.link) {
+            <a [href]="item.link" target="_blank" class="helper-link">
+              <img src="icons/icon-open.svg" alt="Ouvrir" />
+              <span>Consulter le wiki</span>
+            </a>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
+}

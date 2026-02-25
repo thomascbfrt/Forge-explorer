@@ -1,0 +1,99 @@
+<div class="logo" [class.hidden]="showExplanation">
+  <h1 class="main-title">Forge Explorer</h1>
+  <p class="catchphrase">Explorez les projets de la <a href="https://docs.forge.apps.education.fr/">forge de l'éducation nationale</a> autrement !</p>
+</div>
+
+<div class="main-container" [class.hidden]="showExplanation">
+  <div class="topics container">
+    <img src="images/topics.png" alt="" />
+    <button [routerLink]="['/topics']" class="wide-btn">Explorer les Sujets</button>
+  </div>
+  <div class="projects container">
+    <img src="images/projects.png" alt="" />
+    <button [routerLink]="['/projects']" class="wide-btn">Explorer les Projets</button>
+  </div>
+</div>
+
+<div class="scroll-indicator" [class.hidden]="showExplanation">
+  <div class="arrow"></div>
+  <div class="arrow"></div>
+  <span>Scrollez pour en savoir plus</span>
+</div>
+
+<div class="explanation-section" [class.visible]="showExplanation">
+  <div class="explanation-header">
+    <h1>Bienvenue sur Forge Explorer</h1>
+    <p class="subtitle">Outil de visualisation de la forge des communs numériques éducatifs</p>
+  </div>
+
+  <div class="explanation-content">
+    <div class="left-section">
+      <h2>Explorer par Sujets</h2>
+      <p>
+        Découvrez les sujets de cours et thématiques abordés dans les communs numériques.
+        Cette vue vous permet de visualiser les différents domaines d'apprentissage et leurs interconnexions.
+      </p>
+      <h3>Comment l'utiliser :</h3>
+      <ul>
+        <li>Cliquez sur "Explorer les Sujets" pour accéder à la vue par sujets</li>
+        <li>Explorez les différents sujets de cours disponibles</li>
+        <li>Consultez les descriptions détaillées de chaque thématique</li>
+        <li>Observez la taille des sujets en fonction de leurs relations</li>
+      </ul>
+      <p class="use-case">
+        <strong>Idéal pour :</strong> Découvrir les thématiques enseignées, comprendre l'organisation des cours,
+        et identifier les domaines couverts par la forge.
+      </p>
+    </div>
+
+    <div class="right-section">
+      <h2>Explorer par Projets</h2>
+      <p>
+        Visualisez l'écosystème complet de la forge : projets créés, groupes, et participants.
+        Explorez les relations entre ces entités de manière interactive et intuitive.
+      </p>
+      <h3>Comment l'utiliser :</h3>
+      <ul>
+        <li>Cliquez sur "Explorer les Projets" pour accéder à la vue par projets</li>
+        <li>Naviguez dans le graphe interactif des relations</li>
+        <li>Consultez les informations détaillées sur les projets, groupes et participants</li>
+        <li>Découvrez les connexions et collaborations entre les différentes entités</li>
+      </ul>
+      <p class="use-case">
+        <strong>Idéal pour :</strong> Comprendre l'organisation de la forge, identifier les participants et leurs contributions,
+        et explorer les projets et groupes actifs.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>À propos de Forge Explorer</h2>
+    <p>
+      Forge Explorer est un outil de visualisation interactive dédié à la forge des communs numériques éducatifs.
+      Il permet d'explorer et de comprendre les relations entre les participants, les groupes, les projets créés,
+      et les sujets de cours, à travers des représentations graphiques intuitives et navigables.
+    </p>
+    <p class="tip">
+      <strong>Astuce :</strong> Utilisez le bouton "?" dans la barre d'outils pour afficher l'aide contextuelle
+      et découvrir les fonctionnalités disponibles sur chaque page.
+    </p>
+    <p class="did-you-know">
+      <strong>Le saviez-vous ?</strong> Ce projet s'appelait auparavant "JsonToPearl" avant d'être renommé "Forge Explorer".
+    </p>
+    <div class="creators">
+      <h3>Créé par :</h3>
+      <p class="names">
+        <a href="https://github.com/DrakHardL" target="_blank" rel="noopener noreferrer">Tangi Beneat</a> •
+        <a href="https://linktr.ee/N.Bonnaud" target="_blank" rel="noopener noreferrer">Nithael Bonnaud</a> •
+        <a href="https://github.com/thomascbfrt" target="_blank" rel="noopener noreferrer">Thomas Friquet</a>
+      </p>
+        <h3>Responsables du projet :</h3>
+        <p class="names">
+          Iza Marfisi • Thierry Forest
+        </p>
+        <p>
+          Dans le cadre d'un projet de l'IUT de Laval, en collaboration avec le projet <a href="https://gtnum.forge.apps.education.fr/" target="_blank">GTnum FORGES</a>
+        </p>
+    </div>
+  </div>
+</div>

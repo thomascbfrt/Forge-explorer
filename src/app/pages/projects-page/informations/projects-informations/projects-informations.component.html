@@ -1,0 +1,61 @@
+<!-- Creation date -->
+<div class="info-section">
+  <p class="info-value">
+    Créé le {{ project?.created_at | date: "dd/MM/yyyy 'à' HH:mm" }}
+  </p>
+</div>
+
+<!-- Prime Accordion -->
+<div class="card flex justify-center">
+  <p-accordion value="0">
+    <!-- Project's description -->
+    <p-accordion-panel value="0">
+      <p-accordion-header>Description</p-accordion-header>
+      <p-accordion-content>
+        <p class="m-0">
+          {{ project?.description || "Aucune description disponible" }}
+        </p>
+      </p-accordion-content>
+    </p-accordion-panel>
+
+    <!-- Project's readme -->
+    <p-accordion-panel value="1">
+      <p-accordion-header>README</p-accordion-header>
+      <p-accordion-content>
+        <markdown class="readme-content" [data]="readme"></markdown>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+</div>
+
+<!-- Project's creator -->
+<div class="creator-section">
+  <p class="creator-label">
+    Auteur :
+    <span class="creator-name">{{
+      project?.namespace?.name || "Non spécifiée"
+    }}</span>
+  </p>
+</div>
+
+<!-- Project's link -->
+<div class="link-section">
+  @if (project?.web_url) {
+    <a [href]="project?.web_url" target="_blank" class="project-link">
+      <img
+        src="icons/icon-open.svg"
+        alt="Open"
+        class="project-link-icon"
+        style="
+          width: 1.2vw;
+          height: 1.2vw;
+          vertical-align: middle;
+          margin-right: 0.3vw;
+        "
+      />
+      <span>Ouvrir le projet</span>
+    </a>
+  } @else {
+    <p class="info-value">Lien non disponible</p>
+  }
+</div>

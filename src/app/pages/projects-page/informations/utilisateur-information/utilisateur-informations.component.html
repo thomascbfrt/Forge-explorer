@@ -1,0 +1,50 @@
+<!-- Prime Accordion -->
+<div class="card flex justify-center">
+  <p-accordion value="0">
+    <!-- User's projects -->
+    <p-accordion-panel value="0">
+      <p-accordion-header>Projets créés</p-accordion-header>
+      <p-accordion-content>
+        <div class="projects-list">
+          @if (!projects || projects.length === 0) {
+            <p class="no-projects">Aucun projet trouvé</p>
+          } @else {
+            <ul class="project-links">
+              @for (project of projects; track project.id) {
+                <li>
+                  <a
+                    [href]="project.web_url || project.http_url_to_repo"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <img
+                      [src]="
+                        project.avatar_url == ''
+                          ? project.avatar_url
+                          : 'icons/icon-project/icon-project-unselected.svg'
+                      "
+                      class="project-avatar"
+                    />
+                    <span class="project-name">{{ project.name }}</span>
+                  </a>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+</div>
+
+<!-- User's link -->
+<div class="info-section">
+  @if (user?.web_url) {
+    <a [href]="user?.web_url" target="_blank" class="user-link">
+      <img src="icons/icon-open.svg" alt="Open" />
+      <span>Ouvrir le profil</span>
+    </a>
+  } @else {
+    <p class="info-value">Non spécifiée</p>
+  }
+</div>
